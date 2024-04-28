@@ -1,12 +1,3 @@
-<?php
-require_once('../bd/connexion.php');
-
-$req = $bdd->prepare('select * from etudiant');
-$req->execute();
-$etudiants = $req->fetchAll();
-?>
-
-
 <!--
 =========================================================
 * Material Dashboard 2 - v3.1.0
@@ -101,60 +92,48 @@ $etudiants = $req->fetchAll();
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           
-          <h6 class="font-weight-bolder mb-0">Etudiants</h6>
+          <h6 class="font-weight-bolder mb-0">Ajout Etudiants</h6>
         </nav>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Liste des étudiants <a class="btn btn-sm bg-gradient-success mb-0" href="create.php"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Ajouter</a></h6>
+          <div class="col-lg-4 col-md-8 col-12 mx-auto">
+            <div class="card z-index-0 fadeIn3 fadeInBottom">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Ajount d'un étudiant</h4>
+                </div>
               </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Code</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Classe</th>
-                      <th class="text-secondary opacity-7">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach($etudiants as $key=>$etudiant){ ?>
-                    <tr>
-                      <td>
-                        <?=++$key?>
-                      </td>
-                      <td>
-                        <?= $etudiant['codeEtudiant'] ?>
-                      </td>
-                      <td class="text-center">
-                        <?= $etudiant['nom'] ?>
-                      </td>
-                      <td class="text-center">
-                        <?= $etudiant['classe'] ?>
-                      </td>
-                      <td>
-                        ###
-                      </td>
-                    </tr>
-                    <?php } ?>
-                  </tbody>
-                </table>
+              <div class="card-body">
+                <form action="controller.php" method="post" role="form" class="text-start">
+                    <input type="hidden" name="action" value="create">
+                  <div class="input-group input-group-outline my-3">
+                    <label class="form-label">Nom</label>
+                    <input type="text" required name="nom" id="nom" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Classe</label>
+                    <input type="text" required name="classe" id="classe" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Adresse</label>
+                    <input type="text" required name="adresse" id="adresse" class="form-control">
+                  </div>
+    
+                  <div class="text-center">
+                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Enregistrer</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-center">
