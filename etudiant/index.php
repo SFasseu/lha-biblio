@@ -121,6 +121,7 @@ $etudiants = $req->fetchAll();
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Picture</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Code</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Classe</th>
@@ -132,6 +133,15 @@ $etudiants = $req->fetchAll();
                     <tr>
                       <td>
                         <?=++$key?>
+                      </td>
+                      <td>
+                        <?php if($etudiant['picture']){ ?>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="pictures/<?= $etudiant['picture'] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                        </div>
+                        <?php } ?>
                       </td>
                       <td>
                         <?= $etudiant['codeEtudiant'] ?>

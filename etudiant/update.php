@@ -119,7 +119,7 @@ $etudiant = $req->fetch();
                 </div>
               </div>
               <div class="card-body">
-                <form action="controller.php" method="post" role="form" class="text-start">
+                <form action="controller.php" method="post" role="form" class="text-start" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="codeEtudiant" value="<?= $etudiant['codeEtudiant'] ?? 0 ?>">
                   <div class="input-group input-group-outline my-3">
@@ -137,6 +137,11 @@ $etudiant = $req->fetch();
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Adresse</label>
                     <input value="<?= $etudiant['adresse'] ?? '' ?>" type="text" required name="adresse" id="adresse" class="form-control">
+                  </div>
+
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Photo</label>
+                    <input type="file" name="photo" id="photo" class="form-control">
                   </div>
     
                   <div class="text-center">
