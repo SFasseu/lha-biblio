@@ -7,9 +7,8 @@ create table etudiant(
     nom varchar (60) not null,
     prenom varchar (50) default null,
     adresse varchar (50) not null,
-<<<<<<< HEAD
     classe varchar (20) not null,
-=======
+
     classe varchar (20) not null
 )engine = InnoDB default charset = utf8;
 
