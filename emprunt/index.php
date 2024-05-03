@@ -1,3 +1,12 @@
+<?php
+require_once('../bd/connexion.php');
+
+$req = $bdd->prepare('select * from emprunter');
+$req->execute();
+$emprunts = $req->fetchAll();
+?>
+
+
 <!--
 =========================================================
 * Material Dashboard 2 - v3.1.0
@@ -21,7 +30,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Biblio|Etudiant
+    Biblio|Emprunt
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -60,7 +69,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../etudiant/index.php">
+          <a class="nav-link text-white " href="../etudiant/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -76,7 +85,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="emprunt/index.php">
+          <a class="nav-link text-white active bg-gradient-primary " href="emprunt/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
@@ -92,48 +101,61 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           
-          <h6 class="font-weight-bolder mb-0">Ajout Etudiants</h6>
+          <h6 class="font-weight-bolder mb-0">Emprunts</h6>
         </nav>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
     <div class="row">
-          <div class="col-lg-4 col-md-8 col-12 mx-auto">
-            <div class="card z-index-0 fadeIn3 fadeInBottom">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Ajount d'un étudiant</h4>
-                </div>
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Liste des emprunts <a class="btn btn-sm bg-gradient-success mb-0" href="avaible.php"> livre disponible</a></h6>
               </div>
-              <div class="card-body">
-                <form action="controller.php" method="post" role="form" class="text-start">
-                    <input type="hidden" name="action" value="create">
-                  <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Nom</label>
-                    <input type="text" required name="nom" id="nom" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Prénom</label>
-                    <input type="text" name="prenom" id="prenom" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Classe</label>
-                    <input type="text" required name="classe" id="classe" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Adresse</label>
-                    <input type="text" required name="adresse" id="adresse" class="form-control">
-                  </div>
-    
-                  <div class="text-center">
-                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Enregistrer</button>
-                  </div>
-                </form>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">codeEtudiant</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">codeLivre</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">dateEmprunt</th>
+                      <th class="text-secondary opacity-7">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach($emprunts as $key=>$emprunt){ ?>
+                    <tr>
+                      <td>
+                        <?=++$key?>
+                      </td>
+                      <td>
+                        <?= $emprunt['codeEtudiant'] ?>
+                      </td>
+                      <td class="text-center">
+                        <?= $emprunt['codeLivre'] ?>
+                      </td>
+                      <td class="text-center">
+                        <?= $emprunt['dateEmprunt'] ?>
+                      </td>
+                      <td>
+                          <a href="#" class="btn btn-dark-blue " >select</a>
+                          <a href="#" class="btn btn-pinterest ">cancel</a>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-center">

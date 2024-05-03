@@ -21,7 +21,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Biblio|Etudiant
+    Biblio|Emprunt
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -92,7 +92,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           
-          <h6 class="font-weight-bolder mb-0">Ajout Etudiants</h6>
+          <h6 class="font-weight-bolder mb-0">livre disponible</h6>
         </nav>
       </div>
     </nav>
@@ -103,33 +103,12 @@
             <div class="card z-index-0 fadeIn3 fadeInBottom">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Ajount d'un étudiant</h4>
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">livre disponible</h4>
                 </div>
               </div>
               <div class="card-body">
-                <form action="controller.php" method="post" role="form" class="text-start">
-                    <input type="hidden" name="action" value="create">
-                  <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Nom</label>
-                    <input type="text" required name="nom" id="nom" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Prénom</label>
-                    <input type="text" name="prenom" id="prenom" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Classe</label>
-                    <input type="text" required name="classe" id="classe" class="form-control">
-                  </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Adresse</label>
-                    <input type="text" required name="adresse" id="adresse" class="form-control">
-                  </div>
-    
-                  <div class="text-center">
-                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Enregistrer</button>
-                  </div>
-                </form>
+                
+
               </div>
             </div>
           </div>

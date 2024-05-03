@@ -1,9 +1,9 @@
 <?php
 require_once('../bd/connexion.php');
 
-$req = $bdd->prepare('select * from etudiant');
+$req = $bdd->prepare('select * from livre');
 $req->execute();
-$etudiants = $req->fetchAll();
+$livres = $req->fetchAll();
 ?>
 
 
@@ -30,7 +30,7 @@ $etudiants = $req->fetchAll();
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Biblio|Etudiant
+    Biblio|Livre
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -69,7 +69,7 @@ $etudiants = $req->fetchAll();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="etudiant/index.php">
+          <a class="nav-link text-white " href="../etudiant/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -77,7 +77,7 @@ $etudiants = $req->fetchAll();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="livre/index.php">
+          <a class="nav-link text-white active bg-gradient-primary " href="livre/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -85,7 +85,7 @@ $etudiants = $req->fetchAll();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="emprunt/index.php">
+          <a class="nav-link text-white " href="../emprunt/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
@@ -101,7 +101,7 @@ $etudiants = $req->fetchAll();
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           
-          <h6 class="font-weight-bolder mb-0">Etudiants</h6>
+          <h6 class="font-weight-bolder mb-0">Livres</h6>
         </nav>
       </div>
     </nav>
@@ -112,7 +112,7 @@ $etudiants = $req->fetchAll();
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Liste des étudiants <a class="btn btn-sm bg-gradient-success mb-0" href="create.php"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Ajouter</a></h6>
+                <h6 class="text-white text-capitalize ps-3">Liste des livres <a class="btn btn-sm bg-gradient-success mb-0" href="create.php"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Ajouter</a></h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -121,29 +121,30 @@ $etudiants = $req->fetchAll();
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Code</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Classe</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">codeLivre</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">titre</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">auteur</th>
                       <th class="text-secondary opacity-7">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($etudiants as $key=>$etudiant){ ?>
+                    <?php foreach($livres as $key=>$livre){ ?>
                     <tr>
                       <td>
                         <?=++$key?>
                       </td>
                       <td>
-                        <?= $etudiant['codeEtudiant'] ?>
+                        <?= $livre['codeLivre'] ?>
                       </td>
                       <td class="text-center">
-                        <?= $etudiant['nom'] ?>
+                        <?= $livre['titre'] ?>
                       </td>
                       <td class="text-center">
-                        <?= $etudiant['classe'] ?>
+                        <?= $livre['auteur'] ?>
                       </td>
                       <td>
-                        ###
+                          <a href="#" class="btn btn-dark-blue " >Update</a>
+                          <a href="#" class="btn btn-pinterest ">Delete</a>
                       </td>
                     </tr>
                     <?php } ?>

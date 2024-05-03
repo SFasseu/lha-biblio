@@ -108,7 +108,7 @@
               </div>
               <div class="card-body">
                 <form action="controller.php" method="post" role="form" class="text-start">
-                    <input type="hidden" name="action" value="create">
+                    <input type="hidden" name="modifier" value="update">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Nom</label>
                     <input type="text" required name="nom" id="nom" class="form-control">
