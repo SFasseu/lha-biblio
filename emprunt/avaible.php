@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+require_once ('bd/connexion.php');
+
+$nbrEtudiant = [0];
+
+$req1 = $bdd->query('select count(*) from etudiant');
+$nbrEtudiant = $req1->fetch();
+
+//déclaration d'une variable de session
+$_SESSION['etudiant'] = $nbrEtudiant[0];
+
+
+?>
+
 <!--
 =========================================================
 * Material Dashboard 2 - v3.1.0
@@ -106,9 +122,15 @@
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">livre disponible</h4>
                 </div>
               </div>
+<<<<<<< HEAD:emprunt/avaible.php
               <div class="card-body">
                 
 
+=======
+              <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Etudiants</p>
+                <h4 class="mb-0"><?= $nbrEtudiant[0] ?></h4>
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1:index.php
               </div>
             </div>
           </div>

@@ -61,7 +61,7 @@ $etudiants = $req->fetchAll();
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" href="index.php">
+          <a class="nav-link text-white" href="../index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -143,9 +143,7 @@ $etudiants = $req->fetchAll();
                         <?= $etudiant['classe'] ?>
                       </td>
                       <td>
-                          <a href="create.php" class="btn btn-dark-blue " id="modifier" href=".php" >Update</a>
-                          <a href="#" class="btn btn-pinterest ">Delete</a>
-                          
+                        ###
                       </td>
                     </tr>
                     <?php } ?>
@@ -250,6 +248,7 @@ $etudiants = $req->fetchAll();
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -264,10 +263,11 @@ $etudiants = $req->fetchAll();
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+
   <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+  <script src="../assets/js/main.js?v=3.1.0"></script>
 </body>
 
 </html>
