@@ -10,7 +10,7 @@ if($action == 'create'){
     $auteur = $_POST['auteur'] ?? '';
     $dateEdition = $_POST['dateEdition'] ?? '';
 
-    $req = $bdd->prepare('insert into livre(titre,auteur,dateEdtion) values(:titre,:auteur,:dateEdition)');
+    $req = $bdd->prepare('insert into livre(titre,auteur,dateEdition) values(:titre,:auteur,:dateEdition)');
 
     $result = $req->execute(
         array(

@@ -2,14 +2,11 @@
 //récupération de la connexion à la BD
 require_once('../bd/connexion.php');
 
-<<<<<<< HEAD
 $action = isset($_POST['action']) ? $_POST['action'] : "";
 $modifs = isset($_POST['modifier']) ? $_POST['modifier'] : "";
 
-=======
 //variable $action permettant de déterminer l'action à effectuer en fonction du formulaire
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
->>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
 
 //récupération des champs de formulaires
 $nom = $_POST['nom'] ?? '';
@@ -19,14 +16,32 @@ $adresse = $_POST['adresse'] ?? '';
 
 //processus de création d'un étudiant
 if($action == 'create'){
-    $req = $bdd->prepare('insert into etudiant(nom,prenom,classe,adresse) values(:nom,:prenom,:classe,:adresse)');
+    //récupération de l'input type file
+    $photo = $_FILES['photo'];
+
+    //recupération du nom initial du fichier
+    $photoName = $photo['name'];
+
+    //Récupération de la taille du fichier
+    $photoSize = $photo['size'];
+
+    //Récupération de l'extension du fichier
+    $photoExtention = pathinfo($photoName)['extension'];
+   
+    $newFileName = 'photo_'.time().'.'.$photoExtention;
+
+    //Déplacement du fichier du repertoire temporaire vers /pictures
+    move_uploaded_file($photo['tmp_name'], 'pictures/'.$newFileName);
+    
+    $req = $bdd->prepare('insert into etudiant(nom,prenom,classe,adresse,picture) values(:nom,:prenom,:classe,:adresse,:picture)');
 
     $result = $req->execute(
         array(
             'nom' => $nom,
             'prenom' => $prenom,
             'classe' => $classe,
-            'adresse' => $adresse
+            'adresse' => $adresse,
+            'picture' => $newFileName
         )
         );
     
@@ -39,6 +54,24 @@ if($action == 'create'){
 
 //processus de mise à jour d'un étudiant
 elseif($action == 'update'){
+    //récupération de l'input type file
+    $photo = $_FILES['photo'];
+
+    //recupération du nom initial du fichier
+    $photoName = $photo['name'];
+
+    //Récupération de la taille du fichier
+    $photoSize = $photo['size'];
+
+    //Récupération de l'extension du fichier
+    $photoExtention = pathinfo($photoName)['extension'];
+
+    $newFileName = 'photo_'.time().'.'.$photoExtention;
+   
+    //Déplacement du fichier du repertoire temporaire vers /pictures
+    move_uploaded_file($photo['tmp_name'], 'pictures/'.$newFileName);
+    
+
     $code = $_POST['codeEtudiant'] ?? 0;
 
     $req1 = $bdd->prepare('select * from etudiant where codeEtudiant =:code');
@@ -49,13 +82,14 @@ elseif($action == 'update'){
     $etudiantExist = $req1->fetch();
 
     if($etudiantExist){
-        $req = $bdd->prepare('update etudiant set classe=:classe, nom=:nom, prenom=:prenom, adresse=:adresse where codeEtudiant=:code');
+        $req = $bdd->prepare('update etudiant set classe=:classe, nom=:nom, prenom=:prenom, adresse=:adresse, picture=:picture where codeEtudiant=:code');
         $result = $req->execute(
         [
             'nom' => $nom,
             'prenom' => $prenom,
             'classe' => $classe,
             'adresse' =>$adresse,
+            'picture' => $newFileName,
             'code' => $code
         ]
         );
