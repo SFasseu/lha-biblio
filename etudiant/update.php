@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 
 require_once('../bd/connexion.php');
@@ -14,6 +16,7 @@ $etudiant = $req->fetch();
 
 
 ?>
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
 <!--
 =========================================================
 * Material Dashboard 2 - v3.1.0
@@ -40,15 +43,29 @@ $etudiant = $req->fetch();
     Biblio|Etudiant
   </title>
   <!--     Fonts and icons     -->
+<<<<<<< HEAD
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+=======
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
+<<<<<<< HEAD
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+=======
+  <!-- Material Icons -->
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+<<<<<<< HEAD
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+=======
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -72,7 +89,11 @@ $etudiant = $req->fetch();
           </a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
+          <a class="nav-link text-white active bg-gradient-primary" href="../etudiant/index.php">
+=======
           <a class="nav-link text-white active bg-gradient-primary" href="etudiant/index.php">
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -80,7 +101,11 @@ $etudiant = $req->fetch();
           </a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
+          <a class="nav-link text-white " href="../livre/index.php">
+=======
           <a class="nav-link text-white " href="livre/index.php">
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -104,7 +129,11 @@ $etudiant = $req->fetch();
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           
+<<<<<<< HEAD
+          <h6 class="font-weight-bolder mb-0">Ajout Etudiants</h6>
+=======
           <h6 class="font-weight-bolder mb-0">Modification Etudiants</h6>
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
         </nav>
       </div>
     </nav>
@@ -115,11 +144,37 @@ $etudiant = $req->fetch();
             <div class="card z-index-0 fadeIn3 fadeInBottom">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+<<<<<<< HEAD
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Ajount d'un étudiant</h4>
+=======
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Modification d'un étudiant</h4>
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
                 </div>
               </div>
               <div class="card-body">
+<<<<<<< HEAD
+                <form action="controller.php" method="post" role="form" class="text-start">
+<<<<<<< HEAD
+                    <input type="hidden" name="modifier" value="update">
+                  <div class="input-group input-group-outline my-3">
+                    <label class="form-label">Nom</label>
+                    <input type="text" required name="nom" id="nom" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Classe</label>
+                    <input type="text" required name="classe" id="classe" class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Adresse</label>
+                    <input type="text" required name="adresse" id="adresse" class="form-control">
+=======
+=======
                 <form action="controller.php" method="post" role="form" class="text-start" enctype="multipart/form-data">
+>>>>>>> 9419814575367976a95ad66a0d8baad5297b637e
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="codeEtudiant" value="<?= $etudiant['codeEtudiant'] ?? 0 ?>">
                   <div class="input-group input-group-outline my-3">
@@ -137,6 +192,7 @@ $etudiant = $req->fetch();
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Adresse</label>
                     <input value="<?= $etudiant['adresse'] ?? '' ?>" type="text" required name="adresse" id="adresse" class="form-control">
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
                   </div>
 
                   <div class="input-group input-group-outline mb-3">
@@ -260,6 +316,10 @@ $etudiant = $req->fetch();
     }
   </script>
   <!-- Github buttons -->
+<<<<<<< HEAD
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+=======
+>>>>>>> a912db5fc46ce21a853b7049c5c11546c605aaf1
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>

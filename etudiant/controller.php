@@ -2,6 +2,9 @@
 //récupération de la connexion à la BD
 require_once('../bd/connexion.php');
 
+$action = isset($_POST['action']) ? $_POST['action'] : "";
+$modifs = isset($_POST['modifier']) ? $_POST['modifier'] : "";
+
 //variable $action permettant de déterminer l'action à effectuer en fonction du formulaire
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 
@@ -40,8 +43,8 @@ if($action == 'create'){
             'adresse' => $adresse,
             'picture' => $newFileName
         )
-    );
-
+        );
+    
     if($result){
         header('Location:index.php?success=1');
     }else{
@@ -113,6 +116,25 @@ elseif($action == 'delete'){
         header('Location:index.php?success=1');
     }
 }
+
+
+if($modifs == 'update'){
+    $nom = $_POST['nom'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $classe = $_POST['classe'] ?? '';
+    $adresse = $_POST['adresse'] ?? '';
+
+	$nb_modifs="UPDATE etudiant SET nom=?,prenom=?,class=?,adress=? WHERE codeEtudiant=?";
+	$param=array($nom,$prenom,$classe,$adresse);		
+	$modifs = $bdd->prepare($nb_modifs);	
+	$modifs->execute($param);	
+	
+    if($nb_modifs){
+        header('Location:index.php?success=1');
+    }else{
+        header('Location:update.php?error=1');
+    }
+};
 
 
 

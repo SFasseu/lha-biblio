@@ -73,11 +73,11 @@ $etudiants = $req->fetchAll();
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Etudiants</span>
+            <span class="nav-link-text ms-1" >Etudiants</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="livre/index.php">
+          <a class="nav-link text-white " href="../livre/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -85,7 +85,7 @@ $etudiants = $req->fetchAll();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="emprunt/index.php">
+          <a class="nav-link text-white " href="../emprunt/index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
@@ -138,7 +138,7 @@ $etudiants = $req->fetchAll();
                         <?php if($etudiant['picture']){ ?>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="pictures/<?= $etudiant['picture'] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src= "pictures/<?= $etudiant['picture'] ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
                         </div>
                         <?php } ?>
@@ -153,8 +153,7 @@ $etudiants = $req->fetchAll();
                         <?= $etudiant['classe'] ?>
                       </td>
                       <td>
-                      <a class="btn btn-link text-dark px-3 mb-0" href="update.php?id=<?= $etudiant['codeEtudiant'] ?>"><i class="material-icons text-sm me-2">edit</i>Edit</a>
-                      <a data-code-etudiant="<?= $etudiant['codeEtudiant'] ?>" class="btn btn-link text-danger text-gradient px-3 mb-0 student-delete" href="#"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+                        ###
                       </td>
                     </tr>
                     <?php } ?>
